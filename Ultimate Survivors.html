@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Survivors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        :root {
+            --primary-color: #1f2937;
+            --secondary-color: #374151;
+            --accent-color: #ef4444;
+            --text-color: #f9fafb;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #d32f2f;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 1rem;
+        }
+
+        .dead img {
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+
+        .dead {
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .dead::after {
+            content: "X";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3rem;
+            color: red;
+            font-weight: bold;
+            transform: none;
+            pointer-events: none;
+        }
+
+        .grid .survivor, .matches .match, .participants .participant {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+
+        .grid .survivor:hover, .matches .match:hover, .participants .participant:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid img, .matches img, .participants img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .matches {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+        }
+
+        .match {
+            flex: 0 0 calc(20% - 1rem);
+            scroll-snap-align: start;
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .match:hover {
+            transform: translateY(-5px);
+        }
+
+        .matches::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .matches::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .matches::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .participants {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ultimate Survivors 2ª Temporada</h1>
+        <nav>
+            <ul>
+                <li><a href="#survivors">Survivors</a></li>
+                <li><a href="#matches">Partidas</a></li>
+                <li><a href="#participants">Time</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="survivors">
+            <h2>Survivors</h2>
+            <div class="grid">
+                <div class="survivor">
+                    <img src="Imagens/Personagens/1.png" alt = "Survivor 1">
+                    <p>Dwight Fairfield</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/2.png" alt = "Survivor 2">
+                    <p>Meg Thomas</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/3.png" alt = "Survivor 3">
+                    <p>Claudette Morel</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/4.png" alt = "Survivor 4">
+                    <p>Jake Park</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/5.png" alt = "Survivor 5">
+                    <p>William "Bill" Overbeck</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/6.png" alt = "Survivor 6">
+                    <p>Nea Karlsson</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/7.png" alt = "Survivor 7">
+                    <p>David King</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/8.png" alt = "Survivor 8">
+                    <p>Laurie Strode</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/9.png" alt = "Survivor 9">
+                    <p>Ace Visconti</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/10.png" alt = "Survivor 10">
+                    <p>Feng Min</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/11.png" alt = "Survivor 11">
+                    <p>Quentin Smith</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/12.png" alt = "Survivor 12">
+                    <p>Detective David Tapp</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/13.png" alt = "Survivor 13">
+                    <p>Kate Denson</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/14.png" alt = "Survivor 14">
+                    <p>Adam Francis</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/15.png" alt = "Survivor 15">
+                    <p>Jeffrey "Jeff" Johansen</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/16.png" alt = "Survivor 16">
+                    <p>Jane Romero</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/17.png" alt = "Survivor 17">
+                    <p>Ashley J. Williams</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/18.png" alt = "Survivor 18">
+                    <p>Mancy Wheeler</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/19.png" alt = "Survivor 19">
+                    <p>Steve Harrington</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/20.png" alt = "Survivor 20">
+                    <p>Yui Kimura</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/21.png" alt = "Survivor 21">
+                    <p>Zarina Kassir</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/22.png" alt = "Survivor 22">
+                    <p>Cheryl Mason</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/23.png" alt = "Survivor 23">
+                    <p>Felix Richter</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/24.png" alt = "Survivor 24">
+                    <p>Élodie Rakoto</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/25.png" alt = "Survivor 25">
+                    <p>Yun-jin Lee</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/26.png" alt = "Survivor 26">
+                    <p>Jill Valentine</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/27.png" alt = "Survivor 27">
+                    <p>Leon S. Kennedy</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/28.png" alt = "Survivor 28">
+                    <p>Mikaela Reid</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/29.png" alt = "Survivor 29">
+                    <p>Jonah Vasquez</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/30.png" alt = "Survivor 30">
+                    <p>Yoichi Asawaka</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/31.png" alt = "Survivor 31">
+                    <p>Haddie Kaur</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/32.png" alt = "Survivor 32">
+                    <p>Ada Wong</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/33.png" alt = "Survivor 33">
+                    <p>Rebecca Chambers</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/34.png" alt = "Survivor 34">
+                    <p>Vittorio Toscano</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/35.png" alt = "Survivor 35">
+                    <p>Thalita Lyra</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/36.png" alt = "Survivor 36">
+                    <p>Renato Lyra</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/37.png" alt = "Survivor 37">
+                    <p>Gabriel Soma</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/38.png" alt = "Survivor 38">
+                    <p>Nicolas Cage</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/39.png" alt = "Survivor 39">
+                    <p>Ellen Ripley</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/40.png" alt = "Survivor 40">
+                    <p>Alan Wake</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/41.png" alt = "Survivor 41">
+                    <p>Sable Ward</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/42.png" alt = "Survivor 42">
+                    <p>Aestri Yazar</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/43.png" alt = "Survivor 43">
+                    <p>Lara Croft</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/44.png" alt = "Survivor 44">
+                    <p>Trevor Belmont</p>
+                </div>
+                <div class="survivor">
+                    <img src="Imagens/Personagens/45.png" alt = "Survivor 45">
+                    <p>Taurie Cain</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="matches">
+            <h2>Partidas</h2>
+            <div class="matches">
+                <div class="match">
+                    <a href="#">
+                        <img src="Imagens/Mapas/AutoHaven Wreckers.png" alt="Partida 1">
+                        <p>Partida 1</p>
+                    </a>
+                </div>
+                <div class="match">
+                    <a href="#">
+                        <img src="Imagens/Mapas/Backwater Swamp.png" alt="Partida 2">
+                        <p>Partida 2</p>
+                    </a>
+                </div>
+                <div class="match">
+                    <a href="#">
+                        <img src="Imagens/Mapas/Coldwind Farm.png" alt="Partida 3">
+                        <p>Partida 3</p>
+                    </a>
+                </div>
+                <div class="match">
+                    <a href="#">
+                        <img src="Imagens/Mapas/Crotus Prenn Asylum.png" alt="Partida 4">
+                        <p>Partida 4</p>
+                    </a>
+                </div>
+                <div class="match">
+                    <a href="#">
+                        <img src="Imagens/Mapas/Farsaken Boneyard.png" alt="Partida 5">
+                        <p>Partida 5</p>
+                    </a>
+                </div>
+        </section>
+
+        <section id="participants">
+            <h2>Time</h2>
+            <div class="participants">
+                <div class="participant">
+                    <a href = "https://steamcommunity.com/id/FelipeFeshow/"><img src="Imagens/Time/_Patê.png" alt="Participante 1">
+                    <p>Patricia "Patê"</p></a>
+                </div>
+                <div class="participant">
+                    <a href = "https://steamcommunity.com/id/FelipeFeshow/"><img src="Imagens/Time/_Patê.png" alt="Participante 2">
+                    <p>Felipe "Feshow"</p></a>
+                </div>
+                <div class="participant">
+                    <a href = "https://steamcommunity.com/id/FelipeFeshow/"><img src="Imagens/Time/_Patê.png" alt="Participante 3">
+                    <p>Deni "Clima"</p></a>
+                </div>
+                <div class="participant">
+                    <a href = "https://steamcommunity.com/id/FelipeFeshow/"><img src="Imagens/Time/_Patê.png" alt="Participante 4">
+                    <p>Chão "Chopão"</p></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Dead by Daylight Ultimate Survivors. All rights reserved for Patêtas.</p>
+    </footer>
+</body>
+</html>
