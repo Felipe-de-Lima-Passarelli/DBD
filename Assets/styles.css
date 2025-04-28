@@ -49,7 +49,7 @@ body {
 .intro h1 {
   font-size: 3em;
   margin-bottom: 20px;
-  color: #d12b2b; /* Vermelho mais suave */
+  color: #d12b2b;
   text-shadow: 2px 2px 8px #b30000;
 }
 
@@ -127,29 +127,69 @@ body {
 }
 
 .mapa-card {
-  min-width: 250px;
-  background: #1e1e1e;
-  border-radius: 10px;
+  width: 220px;
+  background: #1a1a1a;
+  border: 1px solid #660000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
   flex-shrink: 0;
-  text-align: center;
-  border: 2px solid #660000;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
-.mapa-card img {
+.mapa-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+}
+
+.mapa-img {
+  position: relative;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-bottom: 2px solid #660000;
+  height: 140px;
+  overflow: hidden;
 }
 
-.mapa-card span {
-  display: block;
-  padding: 10px;
+.mapa-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.killer-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.killer-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.killer-info span {
+  color: #fff;
+  font-size: 12px;
   font-weight: bold;
 }
 
-/* Time */
+.mapa-nome {
+  text-align: center;
+  padding: 8px;
+  color: #eee;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .time-section {
   padding: 60px 20px;
   background: #111;
@@ -187,4 +227,100 @@ body {
   font-size: 1.2em;
   font-weight: bold;
   color: #f8f8f8;
+}
+
+.integrante a img {
+  cursor: pointer;
+}
+
+.footer {
+  background: #111;
+  color: #f8f8f8;
+  padding: 40px 20px;
+  border-top: 2px solid #660000;
+  box-shadow: 0 -4px 15px rgba(255, 0, 0, 0.4);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  width: 150px;
+}
+
+.footer-text p {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ccc;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-social a img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1);
+}
+
+.footer-social a {
+  text-decoration: none;
+}
+
+.ultimate-survivors {
+  padding: 30px;
+  font-family: "Arial", sans-serif;
+}
+
+.title {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.rules {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.rules li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ultimate-survivors strong {
+  color: #0073e6;
+}
+
+.final-note {
+  font-size: 20px;
+  color: #0073e6;
+  font-weight: bold;
+  text-align: center;
 }
