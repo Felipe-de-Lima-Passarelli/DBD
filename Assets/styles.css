@@ -325,6 +325,64 @@ body {
   text-align: center;
 }
 
+.rank-section {
+  padding: 60px 20px;
+  background: #1a1a1a;
+}
+
+.rank-section h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #d12b2b;
+  margin-bottom: 40px;
+}
+
+.rank-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rank-card {
+  background: #1e1e1e;
+  border: 2px solid #660000;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rank-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.rank-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.player-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #f8f8f8;
+  margin-bottom: 8px;
+}
+
+.player-elo {
+  font-size: 1em;
+  color: #bbb;
+}
+
 @media (max-width: 768px) {
   .navbar ul {
     flex-direction: column;
